@@ -42,11 +42,18 @@ except ImportError:
 st.title("🏋️ Gaurav Fit Coach")
 st.caption("AI-Powered Sports Medicine & Conditioning Coach")
 
-# API Key Check
+# API Key Management
 api_key = os.environ.get("API_KEY")
+
 if not api_key:
-    st.error("API_KEY environment variable not found. Please set it to use the app.")
-    st.stop()
+    with st.sidebar:
+        st.header("🔑 Authentication")
+        api_key = st.text_input("Enter Google API Key", type="password", help="Get a key at aistudio.google.com")
+        st.markdown("[Get an API Key](https://aistudio.google.com/app/apikey)")
+    
+    if not api_key:
+        st.info("Please enter your Google API Key in the sidebar to proceed.")
+        st.stop()
 
 client = genai.Client(api_key=api_key)
 
