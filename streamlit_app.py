@@ -63,40 +63,54 @@ except ImportError:
 # --- CONSTANTS & DATA (Ported from TypeScript) ---
 
 EXERCISE_DATABASE = {
-    # Impact
+    # --- IMPACT / BONE DENSITY ---
     'jump-rope': { 'name': 'Jump Rope / Pogo Hops', 'group': 'Cardio', 'desc': '3 sets x 1 min', 'video': 'https://www.youtube.com/results?search_query=how+to+jump+rope+properly', 'mode': ['Home', 'Gym'], 'pattern': 'Gait' },
     'box-jumps': { 'name': 'Box Jumps', 'group': 'Legs', 'desc': '3 sets x 8 reps', 'video': 'https://www.youtube.com/results?search_query=box+jump+technique', 'mode': ['Gym'], 'pattern': 'Squat' },
     'broad-jumps': { 'name': 'Broad Jumps', 'group': 'Legs', 'desc': '3 sets x 6 reps', 'video': 'https://www.youtube.com/results?search_query=standing+broad+jump+form', 'mode': ['Home', 'Gym'], 'pattern': 'Hinge' },
+    'lateral-skater-jumps': { 'name': 'Lateral Skater Jumps', 'group': 'Cardio', 'desc': '3 sets x 30s', 'video': 'https://www.youtube.com/results?search_query=skater+jumps+exercise', 'mode': ['Home', 'Gym'], 'pattern': 'Impact' },
+    'med-ball-slam': { 'name': 'Medicine Ball Slams', 'group': 'Power', 'desc': '3 sets x 10 reps', 'video': 'https://www.youtube.com/results?search_query=medicine+ball+slams', 'mode': ['Gym'], 'pattern': 'Power' },
+    'heel-drops': { 'name': 'Heel Drops', 'group': 'Bone Density', 'desc': '3 sets x 20 reps', 'video': 'https://www.youtube.com/results?search_query=heel+drops+for+osteoporosis', 'mode': ['Home', 'Gym'], 'pattern': 'Impact' },
     
-    # Axial Loading
+    # --- AXIAL LOADING (Spine Compression) ---
     'trap-bar-deadlift': { 'name': 'Trap Bar Deadlift', 'group': 'Legs/Back', 'desc': '3 sets x 6-8 reps', 'video': 'https://www.youtube.com/results?search_query=trap+bar+deadlift+form', 'mode': ['Gym'], 'pattern': 'Hinge' },
     'front-squat': { 'name': 'Front Squat', 'group': 'Legs', 'desc': '3 sets x 8 reps', 'video': 'https://www.youtube.com/results?search_query=front+squat+form', 'mode': ['Gym'], 'pattern': 'Squat' },
+    'zercher-squat': { 'name': 'Zercher Squat', 'group': 'Legs/Core', 'desc': '3 sets x 8 reps', 'video': 'https://www.youtube.com/results?search_query=zercher+squat+form', 'mode': ['Gym'], 'pattern': 'Squat' },
     'weighted-step-ups': { 'name': 'Weighted Step-Ups', 'group': 'Legs', 'desc': '3 sets x 10/leg', 'video': 'https://www.youtube.com/results?search_query=weighted+step+up+form', 'mode': ['Home', 'Gym'], 'pattern': 'Lunge' },
     'rucking': { 'name': 'Rucking (Weighted Walk)', 'group': 'Back/Legs', 'desc': '20-30 min walk', 'video': 'https://www.youtube.com/results?search_query=how+to+ruck+properly', 'mode': ['Home', 'Gym'], 'pattern': 'Gait' },
 
-    # Push
+    # --- PUSH ---
     'pushups': { 'name': 'Standard Push-Up', 'group': 'Chest', 'desc': '3 sets x 15 reps', 'video': 'https://www.youtube.com/results?search_query=perfect+pushup+form', 'mode': ['Home'], 'pattern': 'Push' },
     'pike-pushups': { 'name': 'Pike Push-Up', 'group': 'Shoulders', 'desc': '3 sets x 10 reps', 'video': 'https://www.youtube.com/results?search_query=pike+pushup+progression', 'mode': ['Home'], 'pattern': 'Push' },
     'chair-dips': { 'name': 'Tricep Chair Dips', 'group': 'Triceps', 'desc': '3 sets x 15 reps', 'video': 'https://www.youtube.com/results?search_query=how+to+do+chair+dips', 'mode': ['Home'], 'pattern': 'Push' },
     'bench-press': { 'name': 'Barbell Bench Press', 'group': 'Chest', 'desc': '3 sets x 8-10 reps', 'video': 'https://www.youtube.com/results?search_query=bench+press+form', 'mode': ['Gym'], 'pattern': 'Push' },
     'overhead-press': { 'name': 'Overhead Press', 'group': 'Shoulders', 'desc': '3 sets x 10 reps', 'video': 'https://www.youtube.com/results?search_query=overhead+press+form', 'mode': ['Gym', 'Home'], 'pattern': 'Push' },
+    'landmine-press': { 'name': 'Landmine Press', 'group': 'Shoulders', 'desc': '3 sets x 10/arm', 'video': 'https://www.youtube.com/results?search_query=landmine+press+form', 'mode': ['Gym'], 'pattern': 'Push' },
 
-    # Pull
+    # --- PULL ---
     'pullups': { 'name': 'Pull-Ups', 'group': 'Back', 'desc': '3 sets x Max reps', 'video': 'https://www.youtube.com/results?search_query=how+to+do+pullups', 'mode': ['Home', 'Gym'], 'pattern': 'Pull' },
     'dumbbell-row': { 'name': 'Dumbbell Row', 'group': 'Back', 'desc': '3 sets x 12 reps', 'video': 'https://www.youtube.com/results?search_query=dumbbell+row+form', 'mode': ['Home', 'Gym'], 'pattern': 'Pull' },
     'lat-pulldown': { 'name': 'Lat Pulldown', 'group': 'Back', 'desc': '3 sets x 12 reps', 'video': 'https://www.youtube.com/results?search_query=lat+pulldown+form', 'mode': ['Gym'], 'pattern': 'Pull' },
     'cable-row': { 'name': 'Seated Cable Row', 'group': 'Back', 'desc': '3 sets x 12 reps', 'video': 'https://www.youtube.com/results?search_query=seated+cable+row+form', 'mode': ['Gym'], 'pattern': 'Pull' },
     'face-pulls': { 'name': 'Face Pulls', 'group': 'Shoulders', 'desc': '3 sets x 15 reps', 'video': 'https://www.youtube.com/results?search_query=face+pull+exercise', 'mode': ['Gym', 'Home'], 'pattern': 'Pull' },
 
-    # Legs/Core
+    # --- LEGS (Squat/Lunge) ---
     'goblet-squat': { 'name': 'Goblet Squat', 'group': 'Legs', 'desc': '4 sets x 12 reps', 'video': 'https://www.youtube.com/results?search_query=goblet+squat+form', 'mode': ['Home', 'Gym'], 'pattern': 'Squat' },
+    'bulgarian-split-squat': { 'name': 'Bulgarian Split Squat', 'group': 'Legs', 'desc': '3 sets x 8/leg', 'video': 'https://www.youtube.com/results?search_query=bulgarian+split+squat+form', 'mode': ['Home', 'Gym'], 'pattern': 'Lunge' },
+    'walking-lunges': { 'name': 'Walking Lunges', 'group': 'Legs', 'desc': '3 sets x 20 steps', 'video': 'https://www.youtube.com/results?search_query=walking+lunges+form', 'mode': ['Home', 'Gym'], 'pattern': 'Lunge' },
+    
+    # --- HINGE / HAMSTRINGS ---
     'rdl': { 'name': 'Romanian Deadlift', 'group': 'Legs', 'desc': '3 sets x 10 reps', 'video': 'https://www.youtube.com/results?search_query=rdl+form', 'mode': ['Home', 'Gym'], 'pattern': 'Hinge' },
+    'single-leg-rdl': { 'name': 'Single Leg RDL', 'group': 'Hamstrings', 'desc': '3 sets x 8/leg', 'video': 'https://www.youtube.com/results?search_query=single+leg+rdl+form', 'mode': ['Home', 'Gym'], 'pattern': 'Hinge' },
+    'kettlebell-swing': { 'name': 'Kettlebell Swing', 'group': 'Hinge', 'desc': '3 sets x 15 reps', 'video': 'https://www.youtube.com/results?search_query=kettlebell+swing+form', 'mode': ['Home', 'Gym'], 'pattern': 'Hinge' },
+
+    # --- CORE / CARRY ---
     'plank': { 'name': 'Plank', 'group': 'Core', 'desc': '3 sets x 60s', 'video': 'https://www.youtube.com/results?search_query=perfect+plank+form', 'mode': ['Home', 'Gym'], 'pattern': 'Core' },
     'dead-bug': { 'name': 'Dead Bug', 'group': 'Core', 'desc': '3 sets x 12 reps', 'video': 'https://www.youtube.com/results?search_query=dead+bug+exercise', 'mode': ['Home', 'Gym'], 'pattern': 'Core' },
     'farmer-carry': { 'name': 'Farmer Carry', 'group': 'Core/Grip', 'desc': '3 sets x 45s', 'video': 'https://www.youtube.com/results?search_query=farmer+carry+form', 'mode': ['Home', 'Gym'], 'pattern': 'Gait' },
-    'cat-cow': { 'name': 'Cat-Cow Stretch', 'group': 'Mobility', 'desc': '1 min flow', 'video': 'https://www.youtube.com/results?search_query=cat+cow+stretch', 'mode': ['Home', 'Gym'], 'pattern': 'Mobility' },
+    'suitcase-carry': { 'name': 'Suitcase Carry', 'group': 'Core', 'desc': '3 sets x 30s/side', 'video': 'https://www.youtube.com/results?search_query=suitcase+carry+form', 'mode': ['Home', 'Gym'], 'pattern': 'Gait' },
     
-    # Specialized
+    # --- SPECIALIZED ---
+    'cat-cow': { 'name': 'Cat-Cow Stretch', 'group': 'Mobility', 'desc': '1 min flow', 'video': 'https://www.youtube.com/results?search_query=cat+cow+stretch', 'mode': ['Home', 'Gym'], 'pattern': 'Mobility' },
     'kegel-basic': { 'name': 'Kegel Hold', 'group': 'Pelvic Floor', 'desc': '3 sets x 10 reps (3s hold)', 'video': 'https://www.youtube.com/results?search_query=kegel+exercises+for+men', 'mode': ['Home'], 'pattern': 'Isolation' },
     'chin-tuck': { 'name': 'Chin Tucks', 'group': 'Posture', 'desc': '20 reps', 'video': 'https://www.youtube.com/results?search_query=chin+tucks+for+posture', 'mode': ['Home'], 'pattern': 'Mobility' },
     'tibialis-raise': { 'name': 'Tibialis Raise', 'group': 'Legs', 'desc': '3 sets x 20 reps', 'video': 'https://www.youtube.com/results?search_query=tibialis+raise+at+home', 'mode': ['Home', 'Gym'], 'pattern': 'Isolation' }
@@ -297,13 +311,16 @@ if menu == "Today's Plan":
         
         morning, workout, evening = get_daily_plan_logic(today, mode)
         
-        def render_task_list(title, task_ids):
+        def render_task_list(title, task_ids, section_uid):
             if not task_ids:
                 return
             st.subheader(title)
-            for tid in task_ids:
+            for i, tid in enumerate(task_ids):
                 ex = get_exercise_details(tid)
                 is_done = tid in st.session_state.daily_log['completed_tasks']
+                
+                # Unique key: section_uid + tid + index
+                unique_key = f"btn_{section_uid}_{tid}_{i}"
                 
                 with st.expander(f"{'✅' if is_done else '⬜'} {ex['name']}", expanded=False):
                     st.markdown(f"**Rx:** {ex['desc']}")
@@ -311,23 +328,23 @@ if menu == "Today's Plan":
                     if ex['video']:
                         st.markdown(f"[▶ Watch Demo]({ex['video']})")
                     
-                    if st.button(f"Mark {'Undone' if is_done else 'Complete'}", key=f"btn_{tid}"):
+                    if st.button(f"Mark {'Undone' if is_done else 'Complete'}", key=unique_key):
                         if is_done:
                             st.session_state.daily_log['completed_tasks'].remove(tid)
                         else:
                             st.session_state.daily_log['completed_tasks'].add(tid)
                         st.rerun()
 
-        render_task_list("🌅 Morning Routine", morning)
+        render_task_list("🌅 Morning Routine", morning, "morning")
         
         if workout:
             st.markdown("---")
-            render_task_list(f"💪 Main Workout ({mode})", workout)
+            render_task_list(f"💪 Main Workout ({mode})", workout, "workout")
         else:
             st.info("Active Recovery Day.")
             
         st.markdown("---")
-        render_task_list("🌙 Evening Recovery", evening)
+        render_task_list("🌙 Evening Recovery", evening, "evening")
 
     with col2:
         st.markdown('<div class="card">', unsafe_allow_html=True)
