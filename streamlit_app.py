@@ -1,6 +1,4 @@
 import streamlit as st
-from google import genai
-from google.genai import types
 import os
 
 # Configure Page
@@ -18,6 +16,28 @@ st.markdown("""
     h1 { color: #4f46e5; }
 </style>
 """, unsafe_allow_html=True)
+
+try:
+    from google import genai
+    from google.genai import types
+except ImportError:
+    st.error("""
+    **Missing Dependencies**
+    
+    The `google-genai` library is required. 
+    
+    If running locally:
+    ```bash
+    pip install google-genai
+    ```
+    
+    If deploying to Streamlit Cloud, ensure `requirements.txt` exists with:
+    ```
+    streamlit
+    google-genai
+    ```
+    """)
+    st.stop()
 
 st.title("🏋️ Gaurav Fit Coach")
 st.caption("AI-Powered Sports Medicine & Conditioning Coach")
